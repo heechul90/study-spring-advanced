@@ -2,6 +2,9 @@ package study.spring.advanced.trace.strategy;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
+import study.spring.advanced.trace.strategy.code.strategy.ContextV1;
+import study.spring.advanced.trace.strategy.code.strategy.StrategyLogic1;
+import study.spring.advanced.trace.strategy.code.strategy.StrategyLogic2;
 import study.spring.advanced.trace.template.code.AbstractTemplate;
 import study.spring.advanced.trace.template.code.SubClassLogic1;
 import study.spring.advanced.trace.template.code.SubClassLogic2;
@@ -62,5 +65,20 @@ public class ContextV1Test {
         };
         log.info("클래스 이름2={}", template2.getClass());
         template2.execute();
+    }
+
+    /**
+     * 전략 패턴 사용
+     */
+    @Test
+    void strategyV1() {
+        StrategyLogic1 strategyLogic1 = new StrategyLogic1();
+        ContextV1 context1 = new ContextV1(strategyLogic1);
+        context1.execute();
+
+        StrategyLogic2 strategyLogic2 = new StrategyLogic2();
+        ContextV1 context2 = new ContextV1(strategyLogic2);
+        context2.execute();
+
     }
 }
