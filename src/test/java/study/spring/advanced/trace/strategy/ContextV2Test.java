@@ -49,5 +49,4 @@ public class ContextV2Test {
         context.execute(() -> log.info("비즈니스 로직1 실행"));
         context.execute(() -> log.info("비즈니스 로직2 실행"));
     }
-
 }
